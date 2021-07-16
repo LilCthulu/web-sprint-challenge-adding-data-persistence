@@ -4,6 +4,11 @@ exports.up = function(knex) {
 
         projects.text('project_name')
             .notNullable()
-        projects.text('project_description')
+        projects.text('project_description', 128)
+        projects.boolean('project_completed')
     })
 }
+
+exports.down = function(knex) {
+    return knex.schema.dropTableIfExists("projects");
+};
