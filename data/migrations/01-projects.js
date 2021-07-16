@@ -5,7 +5,7 @@ exports.up = function(knex) {
         projects.text('project_name')
             .notNullable()
         projects.text('project_description', 128)
-        projects.boolean('project_completed')
+        projects.boolean('project_completed').defaultTo(false)
     })
 }
 
